@@ -9,7 +9,7 @@ def create_bot(api_token):
 
     @bot.message_handler(content_types=['sticker'])
     def handle_sticker(msg):
-        self.delete_message(msg.chat.id, msg.message_id)
+        bot.delete_message(msg.chat.id, msg.message_id)
 
     @bot.message_handler(commands=['start', 'help'])
     def handle_start_help(msg):
