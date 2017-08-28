@@ -17,7 +17,7 @@ immediately.
 
 ## Source Code
 
-Check it here https://github.com/lorien/nosticker_bot
+Check it here [github.com/lorien/nosticker_bot](https://github.com/lorien/nosticker_bot)
 
 
 ## Questions, ideas, bugs
