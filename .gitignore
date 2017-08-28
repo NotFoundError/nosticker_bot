@@ -4,8 +4,10 @@
 *.swp
 *.swo
 *.orig
+.hg
 
 # Project specific
 /.env
 pip-log.txt
 /var/
+/conf/
