@@ -13,7 +13,7 @@ def create_bot(api_token):
 
     @bot.message_handler(commands=['start', 'help'])
     def handle_start_help(msg):
-        with open('README.rst') as inp:
+        with open('README.md') as inp:
             data = inp.read()
         bot.reply_to(msg, data)
 
