@@ -7,11 +7,31 @@ from argparse import ArgumentParser
 from pymongo import MongoClient
 from datetime import datetime, timedelta
 
+HELP = """*No Sticker Bot Help*
+
+This simple telegram bot was created to solve only one task - to delete FUCKINGLY annoying stickers. Since you add bot to the group and allow it to delete sticker messages it starts deleting any sticker posted to the group.
+
+*Usage*
+
+1. Add [@nosticker_bot](https://t.me/nosticker_bot) to your group.
+2. Go to group settings / users list / promote user to admin
+3. Enable only one item: Delete messages
+4. Click SAVE button
+5. Enjoy!
+
+*Commands*
+
+/help - display this help message
+/stat - display simple statistics about number of deleted stickers
+
+*Open Source*
+
+The source code is available at [github.com/lorien/nosticker_bot](https://github.com/lorien/nosticker_bot)
+You can contact author of the bot at @madspectator
+"""
 
 def create_bot(api_token, db):
     bot = telebot.TeleBot(api_token)
-    with open('README.md') as inp:
-        readme_data = inp.read()
 
     @bot.message_handler(content_types=['sticker'])
     def handle_sticker(msg):
@@ -27,7 +47,7 @@ def create_bot(api_token, db):
 
     @bot.message_handler(commands=['start', 'help'])
     def handle_start_help(msg):
-        bot.reply_to(msg, readme_data, parse_mode='Markdown')
+        bot.reply_to(msg, HELP, parse_mode='Markdown')
 
     @bot.message_handler(commands=['stat'])
     def handle_stat(msg):
