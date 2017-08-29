@@ -69,7 +69,7 @@ def create_bot(api_token, db):
                     top_today[event['chat_username']] += 1
                 top_week[event['chat_username']] += 1
             days.insert(0, num)
-        ret = ' | '.join([str(x) for x in days])
+        ret = 'Recent 7 days: %s' % ' | '.join([str(x) for x in days])
         ret += '\nTop today: %s' % ', '.join('%s (%d)' % x for x in top_today.most_common(5)) 
         ret += '\nTop week: %s' % ', '.join('%s (%d)' % x for x in top_week.most_common(5)) 
         bot.reply_to(msg, ret)
