@@ -10,6 +10,7 @@ from datetime import datetime, timedelta
 HELP = """*No Sticker Bot Help*
 
 This simple telegram bot was created to solve only one task - to delete FUCKINGLY annoying stickers. Since you add bot to the group and allow it to delete sticker messages it starts deleting any sticker posted to the group.
+*UPD:* also now bot deletes messages with GIFs. If it does not work well for you, give me a feedback.
 
 *Usage*
 
@@ -44,6 +45,26 @@ def create_bot(api_token, db):
             'username': msg.from_user.username,
             'date': datetime.utcnow(),
         })
+
+    @bot.message_handler(content_types=['document'])
+    def handle_document(msg):
+        bot.delete_message(msg.chat.id, msg.message_id)
+        db.event.save({
+            'type': 'delete_document',
+            'chat_id': msg.chat.id,
+            'chat_username': msg.chat.username,
+            'user_id': msg.from_user.id,
+            'username': msg.from_user.username,
+            'date': datetime.utcnow(),
+            'document': {
+                'file_id': msg.document.file_id,
+                'file_name': msg.document.file_name,
+                'mime_type': msg.document.mime_type,
+                'file_size': msg.document.file_size,
+                'thumb': msg.document.thumb.__dict__,
+            },
+        })
+
 
     @bot.message_handler(commands=['start', 'help'])
     def handle_start_help(msg):
