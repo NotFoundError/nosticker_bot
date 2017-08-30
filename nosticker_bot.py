@@ -48,22 +48,23 @@ def create_bot(api_token, db):
 
     @bot.message_handler(content_types=['document'])
     def handle_document(msg):
-        bot.delete_message(msg.chat.id, msg.message_id)
-        db.event.save({
-            'type': 'delete_document',
-            'chat_id': msg.chat.id,
-            'chat_username': msg.chat.username,
-            'user_id': msg.from_user.id,
-            'username': msg.from_user.username,
-            'date': datetime.utcnow(),
-            'document': {
-                'file_id': msg.document.file_id,
-                'file_name': msg.document.file_name,
-                'mime_type': msg.document.mime_type,
-                'file_size': msg.document.file_size,
-                'thumb': msg.document.thumb.__dict__,
-            },
-        })
+        if msg.document.mime_type == 'video/mp4':
+            bot.delete_message(msg.chat.id, msg.message_id)
+            db.event.save({
+                'type': 'delete_document',
+                'chat_id': msg.chat.id,
+                'chat_username': msg.chat.username,
+                'user_id': msg.from_user.id,
+                'username': msg.from_user.username,
+                'date': datetime.utcnow(),
+                'document': {
+                    'file_id': msg.document.file_id,
+                    'file_name': msg.document.file_name,
+                    'mime_type': msg.document.mime_type,
+                    'file_size': msg.document.file_size,
+                    'thumb': msg.document.thumb.__dict__ if msg.document.thumb else None,
+                },
+            })
 
 
     @bot.message_handler(commands=['start', 'help'])
