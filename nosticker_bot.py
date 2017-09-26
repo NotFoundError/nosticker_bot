@@ -109,6 +109,7 @@ def create_bot(api_token, db):
             return
         days = []
         top_today = Counter()
+        top_ystd = Counter()
         top_week = Counter()
         today = datetime.utcnow().replace(hour=0, minute=0, second=0, microsecond=0)
         for x in range(7):
@@ -121,13 +122,20 @@ def create_bot(api_token, db):
             num = 0
             for event in db.event.find(query):
                 num += 1
+                key  = (
+                    '@%s' % event['chat_username'] if event['chat_username']
+                    else '#%d' % event['chat_id']
+                )
                 if day == today:
-                    top_today[event['chat_username']] += 1
-                top_week[event['chat_username']] += 1
+                    top_today[key] += 1
+                if day == (today - timedelta(days=1)):
+                    top_ystd[key] += 1
+                top_week[key] += 1
             days.insert(0, num)
         ret = 'Recent 7 days: %s' % ' | '.join([str(x) for x in days])
-        ret += '\nTop today: %s' % ', '.join('%s (%d)' % x for x in top_today.most_common(5)) 
-        ret += '\nTop week: %s' % ', '.join('%s (%d)' % x for x in top_week.most_common(5)) 
+        ret += '\n\nTop today:\n%s' % '\n'.join('  %s (%d)' % x for x in top_today.most_common())
+        ret += '\n\nTop yesterday:\n%s' % '\n'.join('  %s (%d)' % x for x in top_ystd.most_common())
+        ret += '\n\nTop 10 week:\n%s' % '\n'.join('  %s (%d)' % x for x in top_week.most_common(10))
         bot.reply_to(msg, ret)
 
     return bot
