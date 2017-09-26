@@ -28,6 +28,10 @@ This simple telegram bot was created to solve only one task - to delete FUCKINGL
 
 The source code is available at [github.com/lorien/nosticker_bot](https://github.com/lorien/nosticker_bot)
 You can contact author of the bot at @madspectator
+
+*My other projects*
+
+Check out my [@daysandbox_bot](https://t.me/daysandbox_bot) - simple bot that removes LOT of spam.
 """
 
 def create_bot(api_token, db):
