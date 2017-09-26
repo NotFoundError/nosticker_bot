@@ -9,7 +9,7 @@ from datetime import datetime, timedelta
 
 HELP = """*No Sticker Bot Help*
 
-This simple telegram bot was created to solve only one task - to delete FUCKINGLY annoying stickers. Since you add bot to the group and allow it to delete sticker messages it starts deleting any sticker posted to the group.
+This simple telegram bot was created to solve only one task - to delete FUCKINGLY annoying stickers. Since you add bot to the group and allow it to sticker messages it starts deleting any sticker posted to the group.
 
 *Usage*
 

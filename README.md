@@ -2,7 +2,7 @@
 
 This simple telegram bot was created to solve only one task - to delete
 FUCKINGLY annoying stickers. Since you add bot to the group and allow it to
-delete sticker messages it watches all new messages and delete stickers
+delete messages it watches all new messages and delete stickers
 immediately.
 
 
