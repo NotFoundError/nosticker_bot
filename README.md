@@ -15,11 +15,11 @@ immediately.
 5. Enjoy!
 
 
+## Source Code
+
+Check it here [github.com/lorien/nosticker_bot](https://github.com/lorien/nosticker_bot)
+
+
 ## Questions, ideas, bugs
 
 Use [github issues](https://github.com/lorien/nosticker_bot/issues) or send message to telegram: [@madspectator](https://t.me/madspectator)
-
-
-## See Also
-
-[@daysandbox_bot](https://github.com/lorien/daysandbox_bot) - bot that deletes messages cointaining links if author of message joined the group in recent 24 hours
