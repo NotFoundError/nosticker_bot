@@ -72,36 +72,14 @@ def create_bot(api_token, db):
 
     @bot.message_handler(commands=['start', 'help'])
     def handle_start_help(msg):
-        if msg.chat.type != 'private':
-            return
-        bot.reply_to(msg, HELP, parse_mode='Markdown')
-
-    #@bot.message_handler(commands=['stat'])
-    #def handle_stat(msg):
-    #    if msg.chat.type != 'private':
-    #        return
-    #    days = []
-    #    top_today = Counter()
-    #    top_week = Counter()
-    #    today = datetime.utcnow().replace(hour=0, minute=0, second=0, microsecond=0)
-    #    for x in range(7):
-    #        day = today - timedelta(days=x)
-    #        query = {'$and': [
-    #            {'type': 'delete_sticker'},
-    #            {'date': {'$gte': day}},
-    #            {'date': {'$lt': day + timedelta(days=1)}},
-    #        ]}
-    #        num = 0
-    #        for event in db.event.find(query):
-    #            num += 1
-    #            if day == today:
-    #                top_today[event['chat_username']] += 1
-    #            top_week[event['chat_username']] += 1
-    #        days.insert(0, num)
-    #    ret = 'Recent 7 days: %s' % ' | '.join([str(x) for x in days])
-    #    ret += '\nTop today: %s' % ', '.join('%s (%d)' % x for x in top_today.most_common(5)) 
-    #    ret += '\nTop week: %s' % ', '.join('%s (%d)' % x for x in top_week.most_common(5)) 
-    #    bot.reply_to(msg, ret)
+        if msg.chat.type == 'private':
+            bot.reply_to(msg, HELP, parse_mode='Markdown')
+        else:
+            if msg.text.strip() in (
+                    '/start', '/start@nosticker_bot', '/start@nosticker_test_bot',
+                    '/help', '/help@nosticker_bot', '/help@nosticker_test_bot'
+                ):
+                bot.delete_message(msg.chat.id, msg.message_id)
 
     @bot.message_handler(commands=['stat'])
     def handle_stat(msg):
