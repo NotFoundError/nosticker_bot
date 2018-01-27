@@ -5,7 +5,6 @@ FUCKINGLY annoying stickers. Since you add bot to the group and allow it to
 delete messages it watches all new messages and delete stickers
 immediately.
 
-
 ## Usage
 
 1. Add [@nosticker_bot](https://t.me/nosticker_bot) to your group.
@@ -14,12 +13,21 @@ immediately.
 4. Click SAVE button
 5. Enjoy!
 
+## Support
 
-## Source Code
+* Support chat: [@tgrambots](https://t.me/tgrambots)
+* Author's telegram: [@madspectator](https://t.me/madspectator)
+* Use github issues to report bugs: [github issues](https://github.com/lorien/nosticker_bot/issues)
 
-Check it here [github.com/lorien/nosticker_bot](https://github.com/lorien/nosticker_bot)
+## Other projects
 
+* [@daysandbox_bot](https://t.me/daysandbox_bot) - bot that fights with spam messages in chat groups
+* [@coinsignal_robot](https://t.me/coinsignal_robot) - bot to be notified when price of specific coin reaches the level you have set, also you can use this bot just to see price of coins.
+* [@joinhider_bot](https://t.me/joinhider_bot) - bot to delete messages about user joined or left the chat
 
-## Questions, ideas, bugs
+## Donation
 
-Use [github issues](https://github.com/lorien/nosticker_bot/issues) or send message to telegram: [@madspectator](https://t.me/madspectator)
+* Ethereum: 0x00D0c93B180452a7c7B70F463aD9D24d9C6d4d61
+* Litecoin: LKJ86NwUkoboZyFHQwKPx8X984g3m3MPjC
+* Dash: XtGpsphiR2n9Shx9JFAwnuwGmWzSEvmrtU
+* UFO coin: CAdfaUR3tqfumoN7vQMVZ98CakyywgwK1L
