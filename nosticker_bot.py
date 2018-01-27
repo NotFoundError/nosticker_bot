@@ -95,6 +95,10 @@ def create_bot(api_token, db):
     @bot.message_handler(commands=['stat'])
     def handle_stat(msg):
         if msg.chat.type != 'private':
+            if msg.text.strip() in (
+                    '/stat', '/stat@nosticker_bot', '/stat@nosticker_test_bot',
+                ):
+                bot.delete_message(msg.chat.id, msg.message_id)
             return
         days = []
         top_today = Counter()
