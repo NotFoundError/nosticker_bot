@@ -15,7 +15,7 @@ immediately.
 
 ## Support
 
-* Email: lorien@lorien.name
+* Email: lorien @ lorien . name
 * Use github issues to report bugs: [github issues](https://github.com/lorien/nosticker_bot/issues)
 
 ## My Other projects

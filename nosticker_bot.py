@@ -30,7 +30,7 @@ The source code is available at [github.com/lorien/nosticker_bot](https://github
 
 *Questions, Feedback*
 
-Email: lorien@lorien.name
+Email: lorien @ lorien . name
 
 *My Other Projects*
 
